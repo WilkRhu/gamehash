@@ -16,7 +16,8 @@
     "deploy:test": "npx serverless deploy --noPrependStageInUrl -s test -v",
     "deploy:personal": "npx serverless deploy --noPrependStageInUrl -s personal -v",
     "lint": "npx eslint ./src ./__tests__ --ext .js",
-    "lint:fix": "npx eslint ./src ./__tests__ --ext .js --fix"
+    "lint:fix": "npx eslint ./src ./__tests__ --ext .js --fix",
+    "test": "jest --passWithNoTests --no-cache --runInBand --forceExit --verbose"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "jest": "^27.2.1",
     "serverless-http": "^2.7.0",
     "serverless-offline": "^8.2.0",
     "winston": "^3.3.3"
