@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for verified.js</title>
+    <title>Code coverage report for bestPlayerColum.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> verified.js</h1>
+        <h1><a href="index.html">All files</a> bestPlayerColum.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -74,41 +74,50 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-yes">27x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const verified = (data, rows) =&gt; {
-    const colum = data.map(i =&gt; i.filter(o =&gt; o === 'o'))
-    const line = rows.map(i =&gt; i.filter(o =&gt; o === 'o'))
-    const sizeColum = colum.map(i =&gt; i.length)
-    const sizeLine = line.map(i =&gt; i.length)
-    const v1 = sizeColum.reduce((a, p) =&gt; a &gt; p ? a : p )
-    const v2 =sizeLine.reduce((a, p) =&gt; a &gt; p ? a : p )
-    if(v1 &gt; v2) {
-      return 'colum'
-    } else if(v1 &lt; v2) {
-      return 'rows'
-    } else <span class="missing-if-branch" title="else path not taken" >E</span>if(v1 === v2) {
-      return 'diagonals'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">const bestPlayerColum = (data, rows) =&gt; {
+    try {
+        const newBath = []
+        data.map((i, id) =&gt; {
+            if(i.indexOf('o') &gt;= 0) {
+            return newBath.push( i, {indice: id})
+            }
+        })
+        const spaceFilter = newBath[0].indexOf(' ')
+        const { indice } = newBath[1];
+        rows[spaceFilter].splice(indice, 1, 'o')
+        return rows.toString().replace(/,+/g, '')
+    } catch (error) {
+        return {
+            status: 400,
+            error
+        }
     }
-  }
+}
 &nbsp;
-  module.exports = verified
-  </pre></td></tr></table></pre>
+module.exports = bestPlayerColum</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
