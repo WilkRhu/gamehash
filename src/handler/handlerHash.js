@@ -1,6 +1,6 @@
 const app = require('../app')
 const handler = require('../../handler')
-const { verified, smashString, bestPlayerColum } = require('../services')
+const { verified, smashString, bestPlayerColum, bestPlayerRows } = require('../services')
 
 app.get('/', async(req, res, next) => {
     try {
@@ -12,7 +12,8 @@ app.get('/', async(req, res, next) => {
              const resp = await bestPlayerColum(data, rows)
              return res.status(200).json(resp)
           } else if(vf === 'rows') {
-            return bestPlayerLine(rows)
+              const resp = await bestPlayerRows(rows)
+            return res.status(200).json(resp)
           } else if(vf === 'diagonals') {
             return bestDiagonalsPlayer(rows)
           } else {
