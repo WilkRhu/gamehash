@@ -1,0 +1,37 @@
+{
+  "name": "gamehash",
+  "version": "1.0.0",
+  "description": "This template demonstrates how to make a simple REST API with Node.js running on AWS Lambda and API Gateway using the traditional Serverless Framework.",
+  "main": "handler.js",
+  "scripts": {
+    "start": "set NODE_ENV=personal && serverless offline -s personal --noPrependStageInUrl",
+    "local": "npx serverless offline --noPrependStageInUrl -s personal -v",
+    "pretest": "set NODE_ENV=test",
+    "test": "jest --passWithNoTests --no-cache --runInBand --forceExit --verbose",
+    "coverage": "jest --passWithNoTests --no-cache --runInBand --forceExit --coverage",
+    "test:watch": "npm run test -- --watch",
+    "test:ci": "npm run test -- --coverage",
+    "debug": "set SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline",
+    "deploy:dev": "npx serverless deploy --noPrependStageInUrl -s dev -v",
+    "deploy:test": "npx serverless deploy --noPrependStageInUrl -s test -v",
+    "deploy:personal": "npx serverless deploy --noPrependStageInUrl -s personal -v",
+    "lint": "npx eslint ./src ./__tests__ --ext .js",
+    "lint:fix": "npx eslint ./src ./__tests__ --ext .js --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0",
+    "serverless-offline": "^8.2.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "serverless": "^2.59.0"
+  }
+}
