@@ -1,24 +1,25 @@
 const app = require('../app')
 const handler = require('../../handler')
-const { verified } = require('../services')
+const { verified, smashString, bestPlayerColum } = require('../services')
 
 app.get('/', async(req, res, next) => {
     try {
         const { board } = req.query
-        const rows = []
-        const f = []
-        const s = []
-        const tr = []
+        const { data, rows} = await smashString(board)
+        const vf = await verified(data, rows)
 
-        for (let i = 0; i < board.length / 3; i++) {
-            const t = board.split('').splice(i * 3,  3);
-            rows.push(t)
-            f.push(t[0])
-            s.push(t[1])
-            tr.push(t[2])
-        }
-        const vf = await verified([f, s, tr], rows)
-       
+        if(vf === 'colum') {
+             const resp = await bestPlayerColum(data, rows)
+             return res.status(200).json(resp)
+          } else if(vf === 'rows') {
+            return bestPlayerLine(rows)
+          } else if(vf === 'diagonals') {
+            return bestDiagonalsPlayer(rows)
+          } else {
+            return res.status(400).json({ 
+                message: 'Bad Request'
+            })
+          }
     } catch (error) {
         throw error
     }
