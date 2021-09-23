@@ -1,9 +1,9 @@
-const filtersAndSize  = require('./filtersAndSize')
+const filterCompare  = require('./filterCompare')
 
-const verifiedTypesPlays = async (data, rows) => {
+const checkBestMove = async (data, rows) => {
   try {
-    const line = await filtersAndSize(rows)
-    const colum = await filtersAndSize(data)
+    const line = await filterCompare(rows)
+    const colum = await filterCompare(data)
     
     if(!colum.status && !line.status) {
       if (colum > line) {
@@ -21,4 +21,4 @@ const verifiedTypesPlays = async (data, rows) => {
   }
 }
 
-module.exports = verifiedTypesPlays
+module.exports = checkBestMove

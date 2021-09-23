@@ -1,4 +1,4 @@
-const bestPlayerRows = (data) => {
+const bestRowsMoves = (data) => {
     try {
         const newLine = []
         data.map((i, id) => {
@@ -10,6 +10,7 @@ const bestPlayerRows = (data) => {
         const spaceFilter = newLine[0].indexOf(' ')
         const { indice } = newLine[1];
         data[spaceFilter].splice(indice, 1, 'o')
+        
         return data.toString().replace(/,+/g, '')
     } catch (error) {
         return {
@@ -19,4 +20,4 @@ const bestPlayerRows = (data) => {
     }
 }
 
-module.exports = bestPlayerRows
+module.exports = bestRowsMoves
