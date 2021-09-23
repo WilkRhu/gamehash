@@ -1,13 +1,17 @@
 const logger = require('./logger')
-const verified = require('./verified')
+const verifiedTypesPlays = require('./verifiedTypesPlays')
 const smashString = require('./smashString')
 const bestPlayerColum = require('./bestPlayerColum')
 const bestPlayerRows = require('./bestPlayerRows')
+const bestPlayerDiagonals = require('./bestPlayerDiagonals')
+const filtersAndSize = require('./filtersAndSize')
 
 module.exports = {
     logger,
-    verified,
+    verifiedTypesPlays,
     smashString,
     bestPlayerColum,
-    bestPlayerRows
+    bestPlayerRows,
+    bestPlayerDiagonals,
+    filtersAndSize
 }

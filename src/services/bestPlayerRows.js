@@ -2,11 +2,11 @@ const bestPlayerRows = (data) => {
     try {
         const newLine = []
         data.map((i, id) => {
-            if(i.indexOf('o') >= 0) {
-            return newLine.push( i, {indice: id})
+            if (i.indexOf('o') >= 0) {
+                return newLine.push(i, { indice: id })
             }
         })
-        
+
         const spaceFilter = newLine[0].indexOf(' ')
         const { indice } = newLine[1];
         data[spaceFilter].splice(indice, 1, 'o')
@@ -17,7 +17,6 @@ const bestPlayerRows = (data) => {
             error
         }
     }
-    
 }
 
 module.exports = bestPlayerRows
