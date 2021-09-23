@@ -1,4 +1,4 @@
-const filtersAndSize = async (data) => {
+const filterCompare = (data) => {
     const result = []
     const compare = [
         [' ', 'o', 'o'],
@@ -27,4 +27,4 @@ const filtersAndSize = async (data) => {
 
 const equals = ((i, compare) => JSON.stringify(i) === JSON.stringify(compare) ? true : false)
 
-module.exports = filtersAndSize
+module.exports = filterCompare

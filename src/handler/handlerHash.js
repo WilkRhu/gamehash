@@ -1,38 +1,33 @@
 const app = require('../app')
 const handler = require('../../handler')
-const { 
-    verifiedTypesPlays, 
-    smashString, 
-    bestPlayerColum, 
-    bestPlayerRows, 
-    bestPlayerDiagonals 
+const {
+    checkBestMove,
+    smashString,
+    bestColumMoves,
+    bestRowsMoves,
+    bestDiagonalsMoves
 } = require('../services')
 
 app.get('/', async (req, res) => {
     try {
         const { board } = req.query
-        const { data, rows } =  await smashString(board)
-        console.log(rows)
-        const vf =  await verifiedTypesPlays(data, rows)
-        console.log(rows)
+        const { data, rows } = await smashString(board)
+        const vf = await checkBestMove(data, rows)
+
         if (vf.status !== 400) {
             if (vf === 'colum') {
-                const resp = await bestPlayerColum(data, rows)
-                return res.status(200).json(resp)
+                return await res.status(200).json(bestColumMoves(data, rows))
             } else if (vf === 'rows') {
-                const resp = await bestPlayerRows(rows)
-                return res.status(200).json(resp)
+                return await res.status(200).json(bestRowsMoves(rows))
             } else if (vf === 'diagonals') {
-                const resp = await bestPlayerDiagonals(rows)
-                return res.status(200).json(resp)
+                return await res.status(200).json(bestDiagonalsMoves(rows))
             } else {
-                return res.status(400).json({
-                    message: 'Bad Request'
-                })
+                return res.status(400).json({ message: 'Bad Request' })
             }
         } else {
             return res.status(400).json(vf)
         }
+
     } catch (error) {
         return error
     }
