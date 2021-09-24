@@ -1,13 +1,13 @@
 const { bestColumMoves, smashString } = require('../../src/services')
 describe('Test unit bestPlayerColum', () => {
-    it.skip('should return success colum 1', () => {
+    it('should return success colum 1', () => {
         const board = ' xxo  o  '
         const {data, rows} = smashString(board)
         const resp = bestColumMoves(data, rows)
         expect(resp).toBe('oxxo  o  ')
     })
 
-    it.skip('should return success colum 2', () => {
+    it('should return success colum 2', () => {
         const board = 'xoxooxx  '
         const {data, rows} = smashString(board)
         const resp = bestColumMoves(data, rows)
