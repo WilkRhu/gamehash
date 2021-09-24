@@ -1,8 +1,43 @@
+# Api Rest GameHash
+<h2>Sumário:</h2>
+<ul>
+<li><a href="#endpoint">EndPoint</a></li>
+<li><a href="#serverless">Serverless</a></li>
+<li><a href="#services">Services</a></li>
+</ul>
+
+# Resumo
+  Api retorna uma sequência onde favoreça a vitória do jogador 'o', isso posto ela verifica onde está a melhor jogada.
+  Baseado nessa lógica ela receberá uma sequencia passa por uma QueryString ?board= com o tamanho máximo de 9 caracteres, para isso além da construção da API baseada na Cloud foi criado funções desacopladas onde será verificada cada parte do "tabuleiro" e retornar para o jogador onde será a melhor jogada.
+<hr>
+
+# Services
+  <h3 name="services">smashString:</h3> "Quebra" a sitring recebida via url transforma em 2 arrays um de linha outro de coluna
+  <h3>checkBestMove:</h3> Recebe os arrays e determina se a melhor jogas está na linha ou na coluna. Sendo assim chama as determinadas funções que irão ser verificadas e transformadas nas melhores jogadas.
+  <h3>bestColumMoves:</h3> Caso a melhor jogada esteja na coluna essa função será chamada.
+  <h3>bestRowsMoves:</h3> Caso a melhor jogada esteja na linha, essa função será chamada.
+  <h3>bestDiagonalsMoves:</h3> Caso o checkBestMove não encontre a melhor jogada nas linhas nem nas colunas essa função verifica nas diagonais.
+
+<hr>
+
+# EndPoint
+
+Deploy realizado na AWS: <br>
+endpoint para teste:::<br>
+<code name="endpoint">
+```
+https://rdes8davlh.execute-api.us-east-1.amazonaws.com/dev/
+```
+</code>
+
+
 # Serverless Framework Node REST API on AWS
 
 This template demonstrates how to make a simple REST API with Node.js running on AWS Lambda and API Gateway using the traditional Serverless Framework.
 
-This template does not include any kind of persistence (database). For a more advanced examples check out the [examples repo](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
+This template does not include any kind of persistence (database). For a more advanced examples check out the [examples repo](https://github.com/serverless/examples/) which includes Typescript, Mongo, <b name="serverless">DynamoDB and other examples</b>.
+
+
 
 ## Usage
 
