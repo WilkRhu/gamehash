@@ -25,9 +25,9 @@
 Deploy realizado na AWS: <br>
 endpoint para teste:::<br>
 <code name="endpoint">
-```
+``
 https://rdes8davlh.execute-api.us-east-1.amazonaws.com/dev/
-```
+``
 </code>
 
 
