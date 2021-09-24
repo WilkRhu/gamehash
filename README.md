@@ -12,12 +12,23 @@
 <hr>
 
 # Services
-  <h3 name="services">smashString:</h3> "Quebra" a sitring recebida via url transforma em 2 arrays um de linha outro de coluna
-  <h3>checkBestMove:</h3> Recebe os arrays e determina se a melhor jogas está na linha ou na coluna. Sendo assim chama as determinadas funções que irão ser verificadas e transformadas nas melhores jogadas.
-  <h3>bestColumMoves:</h3> Caso a melhor jogada esteja na coluna essa função será chamada.
-  <h3>bestRowsMoves:</h3> Caso a melhor jogada esteja na linha, essa função será chamada.
+  <h3 name="services">smashString:</h3> 
+  "Quebra" a sitring recebida via url transforma em 2 arrays um de linha outro de coluna
+  <br>
+  <h3>checkBestMove:</h3> 
+  Recebe os arrays e determina se a melhor jogas está na linha ou na coluna. Sendo assim chama as determinadas funções que irão ser verificadas e transformadas nas melhores jogadas, Para isso ele chama outra função chamada filterCompare como o resultado favorável entre linha e colunas ele irá enviar uma resposta para o handler com a localização da melhor jogada (linas, colunas ou diagonais).
+<br>
+  <h3>filterCompare</h3> 
+  Receberá tanto as linhas quanto as colunas e vai retornar o valor de cada determinando onde se localiza a melhor jogada para 'o'.
+<br>
+  <h3>bestColumMoves:</h3> 
+  Caso a melhor jogada esteja na coluna essa função será chamada.
+<br>
+  <h3>bestRowsMoves:</h3> 
+  Caso a melhor jogada esteja na linha, essa função será chamada.
+<br>  
   <h3>bestDiagonalsMoves:</h3> Caso o checkBestMove não encontre a melhor jogada nas linhas nem nas colunas essa função verifica nas diagonais.
-
+<br>
 <hr>
 
 # EndPoint
