@@ -2,7 +2,6 @@ const bestDiagonalMoves = (data) => {
   try {
     const firstDiagonals = []
     const arr = []
-    const index = []
 
     firstDiagonals.push(
       [data[0][0], data[1][1], data[2][2]],
@@ -10,9 +9,6 @@ const bestDiagonalMoves = (data) => {
     )
     firstDiagonals.map(i => {
       arr.push(i.filter(o => o != 'x'))
-      if (i.indexOf(' ') >= 0 && i.filter(o => o != 'x')) {
-        index.push(i.indexOf(' '))
-      }
     })
 
     arr.map(i => {

@@ -30,10 +30,10 @@ describe('Test unit bestPlayerColum', () => {
     })
 
     it('should return success', () => {
-        const board = 'o xx o x '
+        const board = 'o xx x xo'
         const { rows } = smashString(board)
         const resp = bestDiagonalsMoves(rows)
-        expect(resp).toBe('o xxoo x ')
+        expect(resp).toBe('o xxox xo')
     })
    
 
