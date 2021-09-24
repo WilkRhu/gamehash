@@ -2,7 +2,7 @@ const bestPlayerColum = (data, rows) => {
     try {
         const newBath = []
         data.map((i, id) => {
-            if(i.indexOf('o') >= 0) {
+            if(i.indexOf('o') >= 0 && !i.find(x => x === 'x')) {
             return newBath.push( i, {indice: id})
             }
         })

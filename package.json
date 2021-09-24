@@ -11,7 +11,6 @@
     "coverage": "jest --passWithNoTests --no-cache --runInBand --forceExit --coverage",
     "test:watch": "npm run test -- --watch",
     "test:ci": "npm run test -- --coverage",
-    "debug": "export SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline",
     "deploy:dev": "npx serverless deploy --noPrependStageInUrl -s dev -v",
     "deploy:test": "npx serverless deploy --noPrependStageInUrl -s test -v",
     "deploy:personal": "npx serverless deploy --noPrependStageInUrl -s personal -v",

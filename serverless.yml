@@ -12,6 +12,20 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: "20201221"
 
+package:
+  exclude:
+    - __tests__/**
+    - jest*
+    - .eslintrc.js
+    - test-api/**
+    - yarn.lock
+    - package-lock.json
+    - node_modules/aws-sdk/**
+    - coverage/**
+    - .vscode/**
+    - .env
+    - .env.test
+
 functions:
   board:
     handler: src/handler/handlerHash.handler
@@ -20,7 +34,4 @@ functions:
           path: /
           method: get
           cors: true
-          request:
-            parameters:
-              querystrings:
-                url: true
+  
