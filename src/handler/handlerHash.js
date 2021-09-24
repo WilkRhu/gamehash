@@ -11,7 +11,7 @@ const {
 app.get('/', async (req, res) => {
     try {
         const { board } = req.query
-        if(board) { 
+        if(board && board.length === 9) { 
             const { data, rows } = await smashString(board)
             const vf = await checkBestMove(data, rows)
     
@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
                 return res.status(400).json(vf)
             }
         }
-        return res.status(400).json({ message: 'Request query params, "board"'})
+        return res.status(400).json({ message: 'Request query params, "board" and 9 characters'})
 
     } catch (error) {
         return error
