@@ -1,14 +1,14 @@
 const bestPlayerColum = (data, rows) => {
     try {
-        const newBath = []
+        const newColum = []
         data.map((i, id) => {
-            if(i.indexOf('o') >= 0 && !i.find(x => x === 'x')) {
-            return newBath.push( i, {indice: id})
+            if (i.indexOf('o') >= 0 && !i.find(x => x === 'x')) {
+                return newColum.push(i, { index: id })
             }
         })
-        const spaceFilter = newBath[0].indexOf(' ')
-        const { indice } = newBath[1];
-        rows[spaceFilter].splice(indice, 1, 'o')
+        const spaceFilter = newColum[0].filter(space => space === ' ').length === 2 ? 2 :  newColum[0].indexOf(' ')
+        const { index } = newColum[1];
+        rows[spaceFilter].splice(index, 1, 'o')
         return rows.toString().replace(/,+/g, '')
     } catch (error) {
         return {

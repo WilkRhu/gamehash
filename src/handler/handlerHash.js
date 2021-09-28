@@ -7,14 +7,15 @@ const {
     bestRowsMoves,
     bestDiagonalsMoves
 } = require('../services')
+const stringSchema = require('../validation/stringValidation')
 
 app.get('/', async (req, res) => {
     try {
         const { board } = req.query
-        if(board && board.length === 9) { 
-            const { data, rows } = await smashString(board)
+        const { error, value } = stringSchema.validate({ board })
+        if(!error) {
+            const { data, rows } = await smashString(value.board)
             const vf = await checkBestMove(data, rows)
-    
             if (vf.status !== 400) {
                 if (vf === 'colum') {
                     return await res.status(200).json(bestColumMoves(data, rows))
@@ -29,8 +30,7 @@ app.get('/', async (req, res) => {
                 return res.status(400).json(vf)
             }
         }
-        return res.status(400).json({ message: 'Request query params, "board" and 9 characters'})
-
+        return res.status(400).json(error)
     } catch (error) {
         return error
     }

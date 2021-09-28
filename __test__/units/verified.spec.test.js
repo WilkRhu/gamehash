@@ -14,7 +14,7 @@ describe('Test handlerHash units', () => {
     })
 
     it('should success return vf function diagonals', async () => {
-        const {data, rows} = smashString('o  xo xx ')
+        const {data, rows} = smashString('o xo xx  ')
         const responseRows = await checkBestMove(data, rows)
         expect(responseRows).toBe('diagonals')
     })

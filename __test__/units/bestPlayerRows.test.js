@@ -7,6 +7,27 @@ describe('Test unit bestPlayerRows', () => {
         expect(resp).toBe('ooox  x  ')
     })
 
+    it('should return success row 1 0 - 2', () => {
+        const board = 'o  xx o x'
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('o oxx o x')
+    })
+
+    it('should return success row 1 1 - 2', () => {
+        const board = 'xx o  x  '
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('xx o ox  ')
+    })
+
+    it('should return success row 1 2 - 2', () => {
+        const board = 'x xo xo  '
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('x xo xo o')
+    })
+
     it('should return success row 1 0 - 1', () => {
         const board = 'o oxx  o '
         const {rows} = smashString(board)
@@ -47,6 +68,6 @@ describe('Test unit bestPlayerRows', () => {
         const board = '   '
         const {rows} = smashString(board)
         const resp = bestRowsMoves(rows)
-        expect(resp.error.message).toBe("Cannot read property 'indexOf' of undefined")
+        expect(resp.error.message).toBe("Cannot read property 'filter' of undefined")
     })
 })

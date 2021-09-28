@@ -1,18 +1,18 @@
 const smashString = (data) => {
     const rows = []
-    const f = []
-    const s = []
-    const tr = []
+    const firstColum = []
+    const secondColum = []
+    const thirdColum = []
 
     for (let i = 0; i < data.length / 3; i++) {
-        const t = data.split('').splice(i * 3, 3);
-        rows.push(t)
-        f.push(t[0])
-        s.push(t[1])
-        tr.push(t[2])
+        const arr = data.split('').splice(i * 3, 3);
+        rows.push(arr)
+        firstColum.push(arr[0])
+        secondColum.push(arr[1])
+        thirdColum.push(arr[2])
     }
 
-    return { data: [f, s, tr], rows }
+    return { data: [firstColum, secondColum, thirdColum], rows }
 }
 
 module.exports = smashString
