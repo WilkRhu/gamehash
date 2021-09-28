@@ -1,12 +1,7 @@
+const { compare } = require("../util/compares")
+
 const filterCompare = (data) => {
     const result = []
-    const compare = [
-        [' ', 'o', 'o'],
-        ['o', ' ', 'o'],
-        ['o', 'o', ' '],
-        ['o', ' ', ' '],
-        [' ', ' ', 'o'],
-    ]
     const filterX = data.map(i => i.filter(x => x === 'x').length).reduce((a, b) => a > b ? a : b)
     if (filterX != 3) {
         data.map(i => {
