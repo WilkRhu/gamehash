@@ -4,7 +4,7 @@ const smashString = require('./smashString')
 const bestColumMoves = require('./bestColumMoves')
 const bestRowsMoves = require('./bestRowsMoves')
 const bestDiagonalsMoves = require('./bestDiagonalMoves')
-const filterCompare = require('./filterCompare')
+const { filterCompare } = require('./filterCompare')
 
 module.exports = {
     logger,
