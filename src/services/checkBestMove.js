@@ -1,17 +1,27 @@
-const { filterCompare } = require('./filterCompare')
+const verifiedDiagonals = require('../util/verifiedDiagonals')
+const filterCompareDiagonals = require('./filterCompareDiagonals')
+const { filterCompareRowsAndColum } = require('./filterCompareRowsAndColum')
 
 const checkBestMove = (data, rows) => {
   try {
-    const line = filterCompare(rows)
-    const colum = filterCompare(data)
+    const compareDiagonals = verifiedDiagonals(rows)
+    const line = filterCompareRowsAndColum(rows)
+    const colum = filterCompareRowsAndColum(data)
+    const diagonals = filterCompareDiagonals(compareDiagonals, rows)
 
     if (!colum.status && !line.status) {
       if (colum > line) {
         return 'colum'
       } else if (colum < line) {
         return 'rows'
-      } else if (colum === line) {
+      } else if (colum === line && !diagonals.status) {
         return 'diagonals'
+      } else {
+        const { status, error } = diagonals
+        return {
+          status,
+          error
+        }
       }
     } else {
       return colum <= 0 ? line : colum

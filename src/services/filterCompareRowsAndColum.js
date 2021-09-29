@@ -1,6 +1,6 @@
 const { compare } = require("../util/compares")
 
-const filterCompare = (data) => {
+const filterCompareRowsAndColum = (data) => {
     const result = []
     const filterX = data.map(i => i.filter(x => x === 'x').length).reduce((a, b) => a > b ? a : b)
     if (filterX != 3) {
@@ -27,6 +27,6 @@ const filterCompare = (data) => {
 const equals = ((i, compare) => JSON.stringify(i) === JSON.stringify(compare) ? true : false)
 
 module.exports = {
-    filterCompare,
+    filterCompareRowsAndColum,
     equals
 }
