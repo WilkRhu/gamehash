@@ -1,5 +1,5 @@
-const { compareDiagonals } = require("../util/compares")
-const { equals } = require("./filterCompare")
+const { equals } = require("./filterCompareRowsAndColum")
+const { compare } = require('../util/compares')
 
 const bestDiagonalMoves = (data) => {
   try {
@@ -16,9 +16,16 @@ const bestDiagonalMoves = (data) => {
 
     arr.map(i => {
       if (i.length === 3) {
-        const spaceFilter = i.filter(space => space === ' ').length === 2 && !equals(i, compareDiagonals) ? 2 : i.indexOf(' ')
+        const spaceFilter = i.filter(space => space === ' ').length === 2 && !equals(i, compare) ? 2 : i.indexOf(' ')
         const index = data[spaceFilter].indexOf(' ')
-        data[spaceFilter].splice(index, 1, 'o')
+        if(spaceFilter === 2 && index === 1) {
+          data[0].splice(0, 1, 'o')
+        } else if(spaceFilter === 2 && index === -1){
+          data[0].splice(spaceFilter, 1, 'o')
+        } else {
+          data[spaceFilter].splice(index, 1, 'o')
+        }
+
       }
     })
 
