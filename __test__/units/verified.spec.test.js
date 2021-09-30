@@ -30,9 +30,27 @@ describe('Test handlerHash units', () => {
         const responseRows = checkBestMove(data, rows)
         expect(responseRows).toBe('rows')
     })
-
+    
     it('should success return vf function rows 1 - 2', () => {
         const { data, rows } = smashString(' xxoo x  ')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('rows')
+    })
+
+    it('should success return vf function rows 2 - 0', () => {
+        const { data, rows } = smashString('x xoxx oo')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('rows')
+    })
+
+    it('should success return vf function rows 2 - 1', () => {
+        const { data, rows } = smashString('x xoxxo o')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('rows')
+    })
+
+    it('should success return vf function rows 2 - 2', () => {
+        const { data, rows } = smashString('x xoxxoo ')
         const responseRows = checkBestMove(data, rows)
         expect(responseRows).toBe('rows')
     })
@@ -51,6 +69,42 @@ describe('Test handlerHash units', () => {
 
     it('should success return vf function colum 0 - 2', () => {
         const { data, rows } = smashString('oxxo   xx')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 1 - 0', () => {
+        const { data, rows } = smashString('x x oxxo ')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 1 - 1', () => {
+        const { data, rows } = smashString('xox  xxo ')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 1 - 2', () => {
+        const { data, rows } = smashString('xox o x  ')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 2 - 0', () => {
+        const { data, rows } = smashString('xx x o  o')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 2 - 1', () => {
+        const { data, rows } = smashString('xxox    o')
+        const responseRows = checkBestMove(data, rows)
+        expect(responseRows).toBe('colum')
+    })
+
+    it('should success return vf function colum 2 - 2', () => {
+        const { data, rows } = smashString('xxox o   ')
         const responseRows = checkBestMove(data, rows)
         expect(responseRows).toBe('colum')
     })

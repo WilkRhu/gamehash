@@ -1,27 +1,55 @@
 const { bestRowsMoves, smashString } = require('../../src/services')
 describe('Test unit bestPlayerRows', () => {
-    it('should return success row 1 0 - 0', () => {
+    it('should return success row 0 - 0', () => {
         const board = ' oox  x  '
         const {rows} = smashString(board)
         const resp = bestRowsMoves(rows)
         expect(resp).toBe('ooox  x  ')
     })
 
-    it('should return success row 1 0 - 2', () => {
-        const board = 'o  xx o x'
+    it('should return success row 0 - 1', () => {
+        const board = 'o ox  x  '
         const {rows} = smashString(board)
         const resp = bestRowsMoves(rows)
-        expect(resp).toBe('o oxx o x')
+        expect(resp).toBe('ooox  x  ')
     })
 
-    it('should return success row 1 1 - 2', () => {
+    it('should return success row 0 - 2', () => {
+        const board = 'oo x  x  '
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('ooox  x  ')
+    })
+
+    it('should return success row  1 - 1', () => {
+        const board = 'xx o ox  '
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('xx ooox  ')
+    })
+
+    it('should return success row  1 - 2', () => {
         const board = 'xx o  x  '
         const {rows} = smashString(board)
         const resp = bestRowsMoves(rows)
         expect(resp).toBe('xx o ox  ')
     })
+    
+    it('should return success row 2 - 0', () => {
+        const board = 'xx ox  o'
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('xx ox oo')
+    })
 
-    it('should return success row 1 2 - 2', () => {
+    it('should return success row 2 - 1', () => {
+        const board = 'xx ox o o'
+        const {rows} = smashString(board)
+        const resp = bestRowsMoves(rows)
+        expect(resp).toBe('xx ox ooo')
+    })
+
+    it('should return success row 2 - 2', () => {
         const board = 'x xo xo  '
         const {rows} = smashString(board)
         const resp = bestRowsMoves(rows)
