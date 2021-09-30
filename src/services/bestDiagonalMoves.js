@@ -18,23 +18,21 @@ const bestDiagonalMoves = (data) => {
       if (i.length === 3) {
         const spaceFilter = i.filter(space => space === ' ').length === 2 && !equals(i, compare) ? 2 : i.indexOf(' ')
         const index = data[spaceFilter].indexOf(' ')
-        if(spaceFilter === 2 && index === 1) {
+        if (spaceFilter === 2 && index === 1) {
           data[0].splice(0, 1, 'o')
-        } else if(spaceFilter === 2 && index === -1){
+        } else if (spaceFilter === 2 && index === -1) {
           data[0].splice(spaceFilter, 1, 'o')
         } else {
           data[spaceFilter].splice(index, 1, 'o')
         }
 
       }
+
     })
 
     return data.toString().replace(/,+/g, '')
   } catch (error) {
-    return {
-      status: 400,
-      error
-    }
+    return error
   }
 }
 
