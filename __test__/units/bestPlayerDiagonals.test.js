@@ -62,6 +62,6 @@ describe('Test unit bestPlayerColum', () => {
         const board = '   '
         const { rows } = smashString(board)
         const resp = bestDiagonalsMoves(rows)
-        expect(resp.error.message).toBe("Cannot read property '1' of undefined")
+        expect(resp.message).toBe("Cannot read property '1' of undefined")
     })
 })

@@ -4,6 +4,7 @@ const bestColumMoves = require('./bestColumMoves')
 const bestRowsMoves = require('./bestRowsMoves')
 const bestDiagonalsMoves = require('./bestDiagonalMoves')
 const { filterCompareRowsAndColum } = require('./filterCompareRowsAndColum')
+const filterCompareDiagonals = require('./filterCompareDiagonals')
 
 module.exports = {
     checkBestMove,
@@ -11,5 +12,6 @@ module.exports = {
     bestColumMoves,
     bestRowsMoves,
     bestDiagonalsMoves,
-    filterCompareRowsAndColum
+    filterCompareRowsAndColum,
+    filterCompareDiagonals
 }
