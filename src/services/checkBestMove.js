@@ -8,7 +8,7 @@ const checkBestMove = (data, rows) => {
     const line = filterCompareRowsAndColum(rows)
     const colum = filterCompareRowsAndColum(data)
     const diagonals = filterCompareDiagonals(compareDiagonals, rows)
-    const { status } = diagonals
+    const { error, status } = diagonals
 
     if (!colum.status && !line.status) {
       if (colum > line) {
@@ -18,7 +18,6 @@ const checkBestMove = (data, rows) => {
       } else if (colum === line && !status) {
         return 'diagonals'
       } else {
-        const { status, error } = diagonals
         return {
           status,
           error
