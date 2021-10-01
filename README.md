@@ -9,6 +9,7 @@
 # Resumo
   Api retorna uma sequência onde favoreça a vitória do jogador 'o', isso posto ela verifica onde está a melhor jogada.
   Baseado nessa lógica ela receberá uma sequencia passa por uma QueryString ?board= com o tamanho máximo de 9 caracteres, para isso além da construção da API baseada na Cloud foi criado funções desacopladas onde será verificada cada parte do "tabuleiro" e retornar para o jogador onde será a melhor jogada.
+  <p>Importante resaltar a criação de 2 arquivos .env e .env.test com o NODE_ENV=development e outro com NODE_ENV=test</p>
 <hr>
 
 # Services
