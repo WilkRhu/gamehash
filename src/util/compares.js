@@ -6,11 +6,7 @@ const compare = [
     [' ', ' ', 'o'],
 ];
 
-const compareDiagonals = [
-    [' ', ' ', 'o']
-]
 
 module.exports = {
-    compare,
-    compareDiagonals
+    compare
 }
