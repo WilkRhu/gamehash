@@ -15,7 +15,7 @@ const bestDiagonalMoves = (data) => {
     })
 
     arr.map(i => {
-      if (i.length === 3) {
+      if (i.length === 3 && i.filter(o => o === 'o').length !== 3) {
         const spaceFilter = i.filter(space => space === ' ').length === 2 && !equals(i, compare) ? 2 : i.indexOf(' ')
         const index = data[spaceFilter].indexOf(' ')
         if (spaceFilter === 2 && index === 1) {
