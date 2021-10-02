@@ -159,4 +159,10 @@ describe('Test handlerHash units', () => {
         expect(responseRows.message).toBe('You Lose!')
     })
 
+    it('should error return catch', () => {
+        const responseRows = checkBestMove({data: '', rows: ''})
+        expect(responseRows.status).toBe(400)
+        expect(responseRows.error.message).toBe("Cannot read property '0' of undefined")
+    })
+
 })

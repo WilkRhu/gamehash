@@ -18,6 +18,16 @@
     "lint": "npx eslint ./src ./__tests__ --ext .js",
     "lint:fix": "npx eslint ./src ./__tests__ --ext .js --fix"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/middleware/errorHandler.js",
+      "!coverage/**/*",
+      "!__test__/**/*",
+      "!.eslintrc.js",
+      "!src/app",
+      "!handler.js"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -30,6 +40,7 @@
     "prettier": "^2.4.1",
     "serverless-http": "^2.7.0",
     "serverless-offline": "^8.2.0",
+    "supertest": "^6.1.6",
     "winston": "^3.3.3"
   },
   "devDependencies": {
